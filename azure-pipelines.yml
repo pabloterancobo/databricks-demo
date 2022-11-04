@@ -6,7 +6,7 @@ trigger:
 - main
 
 pool:
-  name: Hosted Ubuntu 1604
+  name: ubuntu-latest
 
 steps:
 # 0 install python
