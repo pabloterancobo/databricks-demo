@@ -5,8 +5,8 @@
 trigger:
 - main
 
-pool:
-  name: ubuntu-latest
+#pool:
+#  name: ubuntu-latest
 
 steps:
 # 0 install python
