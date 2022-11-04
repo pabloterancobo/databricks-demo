@@ -64,4 +64,4 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    ArtifactName: 'pabloterancobo.databricks-demo'
+    ArtifactName: '_pabloterancobo.databricks-demo'
