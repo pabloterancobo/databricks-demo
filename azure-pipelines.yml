@@ -9,16 +9,17 @@ pool:
   name: Hosted Ubuntu 1604
 
 steps:
+# 0 install python
 - task: UsePythonVersion@0
   displayName: 'Use Python 3.7'
   inputs:
     versionSpec: 3.7
-
+# 1 Load python dependencies
 - script: |
     pip install pytest requests setuptools wheel
     pip install -U databricks-connect==6.4.*
   displayName: 'Load Python Dependencies'
-
+# 2 
 - script: |
     echo "y
     $(WORKSPACE-REGION-URL)
@@ -31,17 +32,17 @@ steps:
 - checkout: self
   persistCredentials: true
   clean: true
-
+# 3 
 - script: git checkout main
   displayName: 'Get Latest Branch'
 
-
+# 4
 - script: |
     cd $(Build.Repository.LocalPath)/package
     python3 setup.py sdist bdist_wheel
     ls dist/
   displayName: 'Build Python Wheel for Libs'
-
+# 5
 - script: |
     git diff --name-only --diff-filter=AMR HEAD^1 HEAD | xargs -I '{}' cp --parents -r '{}' $(Build.BinariesDirectory)
 
