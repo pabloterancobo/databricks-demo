@@ -25,7 +25,7 @@ steps:
     $(WORKSPACE-REGION-URL)
     $(CSE-QA-PAT)
     $(CLUSTERID)
-    $(WORKSPACEID)
+    $(CSE-QA-WORKSPACE)
     15001" | databricks-connect configure
   displayName: 'Configure DBConnect'
 
